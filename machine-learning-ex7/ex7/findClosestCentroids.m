@@ -21,10 +21,14 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+% size(centroids)
+% size(X)
+% min(sum(X - ones(size(X, 1), size(centroids, 1))*centroids).^2)
 
-
-
-
+m=size(X,1);
+for i=1:m
+    [~,idx(i)] = min(sum((centroids - ones(size(centroids,1),size(X(i,:),1))*X(i,:)).^2, 2));
+end
 
 
 % =============================================================
